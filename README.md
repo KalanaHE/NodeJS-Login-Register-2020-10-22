@@ -2,7 +2,11 @@
 
 ## Signup
 
-http://localhost:4000/api/signup
+http://localhost:4000/api/user/signup
+
+body:
+
+```sh
 {
 "firstname":"kalana",
 "lastname":"hettiarachchi",
@@ -10,11 +14,17 @@ http://localhost:4000/api/signup
 "email":"kalana.hettiarachchi@immunify.me",
 "password":"hello"
 }
+```
 
 ## Signin
 
-http://localhost:4000/api/signup
+http://localhost:4000/api/user/signup
+
+body:
+
+```sh
 {
 "email":"kalana.hettiarachchi@immunify.me",
 "password":"hello"
 }
+```
