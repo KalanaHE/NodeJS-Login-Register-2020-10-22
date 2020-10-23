@@ -18,13 +18,11 @@ mongoose
 
 //routes
 const userRoutes = require("./routes/user/auth");
-const adminRoutes = require("./routes/admin/auth");
 
 app.use(express.json());
 
 //route middleware
 app.use("/api/user", userRoutes);
-app.use("/api/admin", adminRoutes);
 
 app.listen(process.env.PORT, () => {
   console.log(`Server running at port: ${process.env.PORT}`);
