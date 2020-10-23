@@ -15,6 +15,16 @@ exports.signupvalidator = [
     .withMessage("Password must be at least 2 characters long!"),
 ];
 
+exports.signinvalidator = [
+  check("email").notEmpty().withMessage("Email is required!"),
+  check("email").isEmail().withMessage("Enter a valid email!"),
+
+  check("password").notEmpty().withMessage("Password is required!"),
+  check("password")
+    .isLength({ min: 4 })
+    .withMessage("Password must be at least 2 characters long!"),
+];
+
 exports.isRequestValidated = async (req, res, next) => {
   const errors = validationResult(req);
 

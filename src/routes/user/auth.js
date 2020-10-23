@@ -10,11 +10,12 @@ const { response } = require("../../helpers/response.helper");
 const {
   signupvalidator,
   isRequestValidated,
-} = require("../../validators/signup.validator");
+  signinvalidator,
+} = require("../../validators/request.validator");
 
 router.post("/signup", signupvalidator, isRequestValidated, signup);
 
-router.post("/signin", signin);
+router.post("/signin", signinvalidator, isRequestValidated, signin);
 
 router.post("/profile", requireSignIn, (req, res) => {
   response(
