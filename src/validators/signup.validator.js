@@ -15,11 +15,15 @@ exports.signupvalidator = [
     .withMessage("Password must be at least 2 characters long!"),
 ];
 
-exports.isRequestValidated = (req, res, next) => {
+exports.isRequestValidated = async (req, res, next) => {
   const errors = validationResult(req);
 
+  const filtered = await errors.errors.map((error) => {
+    return error.msg;
+  });
+
   if (errors.array().length > 0) {
-    return response(req, res, 400, {}, { info: errors.array()[0].msg });
+    return response(req, res, 400, {}, { info: filtered });
   } else {
     next();
   }
